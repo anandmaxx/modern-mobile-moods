@@ -77,7 +77,7 @@ function ChildBase({ photo = true, toast }: { photo?: boolean; toast?: ReactNode
 }
 
 function Dim({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cn("absolute inset-0 z-30 flex flex-col bg-ink/60", className)}>{children}</div>;
+  return <div className={cn("absolute inset-0 z-30 flex flex-col bg-scrim", className)}>{children}</div>;
 }
 
 function SheetRow({
@@ -166,7 +166,7 @@ export function EditChildPhoto() {
         <img src={aarav} alt="Aarav Sharma" className="size-full scale-[1.3] object-cover" loading="lazy" />
         <div
           className="absolute inset-7 rounded-full"
-          style={{ boxShadow: "0 0 0 400px color-mix(in oklab, var(--ink) 70%, transparent)" }}
+          style={{ boxShadow: "0 0 0 400px var(--scrim)" }}
         />
         <div className="absolute inset-7 rounded-full border-2 border-accent" />
         {/* rule-of-thirds guides */}

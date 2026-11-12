@@ -134,7 +134,7 @@ export function PosterPopup() {
       <div className="scrim-top absolute inset-0" />
       <div className="relative flex items-center justify-between px-5 pt-14">
         <Pill tone="accent">New from your academy</Pill>
-        <span className="grid size-9 place-items-center rounded-full bg-ink/60 backdrop-blur">
+        <span className="grid size-9 place-items-center rounded-full bg-scrim backdrop-blur">
           <X className="size-4" />
         </span>
       </div>

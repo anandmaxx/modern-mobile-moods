@@ -31,3 +31,4 @@ use the editor.
 
 ## Project rules
 - Screens are static mockups in `src/components/mock/*` composed on the `/` showcase inside `PhoneFrame`; keep them presentational (no data fetching or state) because the deliverable is a design, not a working app.
+- Style mock screens with theme token classes only (no hardcoded hex/white/black utilities) so the showcase's Light/Dark switch re-themes every screen; use `--scrim` for photo overlays and `--notch` for the status-bar pill.

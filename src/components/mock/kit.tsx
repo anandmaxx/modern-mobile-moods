@@ -46,7 +46,7 @@ function StatusBar({ light }: { light?: boolean | undefined }) {
       )}
     >
       <span>9:41</span>
-      <div className="absolute left-1/2 top-2.5 h-6 w-24 -translate-x-1/2 rounded-full bg-bezel" />
+      <div className="absolute left-1/2 top-2.5 h-6 w-24 -translate-x-1/2 rounded-full bg-notch" />
       <div className="flex items-center gap-1">
         <Signal className="size-3.5" />
         <Wifi className="size-3.5" />
