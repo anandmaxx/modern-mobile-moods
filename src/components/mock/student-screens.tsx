@@ -247,7 +247,7 @@ export function StudentDetailsForm() {
 
         <div className="mt-3 flex items-center gap-2 rounded-xl bg-info/10 px-3 py-2 text-[11px] font-medium text-info">
           <Info className="size-3.5 shrink-0" />
-          Only academy staff can see this address.
+          Only academy staff can see your address.
         </div>
 
         <div className="mt-auto grid grid-cols-[auto_1fr] gap-2 pt-3">
