@@ -164,7 +164,10 @@ export function EditChildPhoto() {
 
       <div className="relative mx-4 aspect-square overflow-hidden rounded-3xl">
         <img src={aarav} alt="Aarav Sharma" className="size-full scale-[1.3] object-cover" loading="lazy" />
-        <div className="absolute inset-7 rounded-full ring-[400px] ring-ink/70" />
+        <div
+          className="absolute inset-7 rounded-full"
+          style={{ boxShadow: "0 0 0 400px color-mix(in oklab, var(--ink) 70%, transparent)" }}
+        />
         <div className="absolute inset-7 rounded-full border-2 border-accent" />
         {/* rule-of-thirds guides */}
         <div className="pointer-events-none absolute inset-7 grid grid-cols-3 grid-rows-3 overflow-hidden rounded-full">
