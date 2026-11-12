@@ -10,6 +10,7 @@ import {
   StaffToday, StaffMark, StaffStudents, StaffPayments, StaffInbox, StaffEngagement, StaffMore,
 } from "@/components/mock/staff-screens";
 import { StudentProfile, StudentDetailsForm } from "@/components/mock/student-screens";
+import { ChildPhotoOptions, EditChildPhoto, RemoveChildPhoto, NoChildPhoto } from "@/components/mock/photo-screens";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -87,6 +88,10 @@ function Index() {
         <PhoneFrame title="Feedback" note="Coach notes and achievements"><FeedbackScreen /></PhoneFrame>
         <PhoneFrame title="Profile · dark mode" dark><ParentProfile /></PhoneFrame>
         <PhoneFrame title="School & address" note="Parent adds school name and home address for their child"><StudentDetailsForm /></PhoneFrame>
+        <PhoneFrame title="Child photo · options" note="Tap the photo to take, upload, edit or remove it"><ChildPhotoOptions /></PhoneFrame>
+        <PhoneFrame lightStatus title="Edit photo" note="Crop, zoom, rotate, flip and brighten"><EditChildPhoto /></PhoneFrame>
+        <PhoneFrame title="Remove photo" note="Asks before removing; initials show instead"><RemoveChildPhoto /></PhoneFrame>
+        <PhoneFrame title="No photo yet" note="Take or upload a photo · undo after removing"><NoChildPhoto /></PhoneFrame>
       </Section>
 
       <Section id="staff" eyebrow="03 · Staff app" title="For coaches & managers" desc="Check in, mark attendance, collect fees and approve every message to parents.">
