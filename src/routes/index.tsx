@@ -9,6 +9,7 @@ import {
 import {
   StaffToday, StaffMark, StaffStudents, StaffPayments, StaffInbox, StaffEngagement, StaffMore,
 } from "@/components/mock/staff-screens";
+import { StudentProfile, StudentDetailsForm } from "@/components/mock/student-screens";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -59,7 +60,7 @@ function Index() {
 
       <div className="mx-auto max-w-[1520px] px-6 pb-4 pt-16">
         <h1 className="max-w-3xl text-5xl font-extrabold leading-[1.02] md:text-6xl">
-          One app, two experiences. <span className="rounded-xl bg-accent px-2 text-accent-foreground">22 screens.</span>
+          One app, two experiences. <span className="rounded-xl bg-accent px-2 text-accent-foreground">24 screens.</span>
         </h1>
         <p className="mt-4 max-w-xl text-lg text-muted-foreground">
           Mobile UI for SkateFlow — parents follow attendance and fees, staff run the academy's day.
@@ -91,6 +92,8 @@ function Index() {
         <PhoneFrame title="Today" note="Check-in, sessions and what needs attention"><StaffToday /></PhoneFrame>
         <PhoneFrame title="Mark attendance" note="Present, Late, Absent, Excused + visitors"><StaffMark /></PhoneFrame>
         <PhoneFrame title="Students"><StaffStudents /></PhoneFrame>
+        <PhoneFrame title="Student profile" note="Class, attendance, progress and parent contacts"><StudentProfile /></PhoneFrame>
+        <PhoneFrame title="School & address" note="Form to add school name and home address"><StudentDetailsForm /></PhoneFrame>
         <PhoneFrame title="Payments" note="Collected, outstanding, screenshot reviews"><StaffPayments /></PhoneFrame>
         <PhoneFrame title="Inbox · Approvals" note="Nothing reaches parents without approval"><StaffInbox /></PhoneFrame>
         <PhoneFrame title="New announcement" note="With a preview of what parents see"><StaffEngagement /></PhoneFrame>
