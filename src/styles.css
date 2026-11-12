@@ -37,6 +37,7 @@
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-bezel: var(--bezel);
+  --color-notch: var(--notch);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -86,6 +87,8 @@
   --destructive: oklch(0.62 0.2 25);
   --destructive-foreground: oklch(0.985 0 0);
   --bezel: oklch(0.17 0.02 262);
+  --notch: oklch(0.17 0.02 262);
+  --grid-dot: oklch(0.24 0.045 262 / 0.08);
   --border: oklch(0.92 0.01 255);
   --input: oklch(0.92 0.01 255);
   --ring: oklch(0.7 0.04 256);
@@ -107,7 +110,7 @@
 }
 
 .dark {
-  --background: oklch(0.16 0.02 262);
+  --background: oklch(0.13 0.018 262);
   --foreground: oklch(0.96 0.005 250);
   --surface: oklch(0.16 0.02 262);
   --card: oklch(0.215 0.025 262);
@@ -125,6 +128,17 @@
   --border: oklch(1 0 0 / 9%);
   --input: oklch(1 0 0 / 14%);
   --ring: oklch(0.55 0.03 264);
+  /* Phone shell stays readable against the dark canvas */
+  --bezel: oklch(0.3 0.022 262);
+  --notch: oklch(0.09 0.015 262);
+  --grid-dot: oklch(0.95 0.01 250 / 0.07);
+  /* Status colours lifted for contrast on dark cards */
+  --success: oklch(0.75 0.15 155);
+  --warning: oklch(0.8 0.14 75);
+  --info: oklch(0.72 0.13 250);
+  --destructive: oklch(0.68 0.19 25);
+  --destructive-foreground: oklch(0.985 0 0);
+  --phone-shadow: 0 40px 80px -30px oklch(0 0 0 / 0.8), 0 12px 24px -12px oklch(0 0 0 / 0.55);
   --soft-shadow: 0 6px 20px -10px oklch(0 0 0 / 0.5);
 }
 
@@ -146,7 +160,7 @@
 
 @utility canvas-grid {
   background-image:
-    radial-gradient(circle at 1px 1px, oklch(0.24 0.045 262 / 0.08) 1px, transparent 0);
+    radial-gradient(circle at 1px 1px, var(--grid-dot) 1px, transparent 0);
   background-size: 22px 22px;
 }
 
