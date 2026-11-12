@@ -11,7 +11,7 @@ function RoundIcon({ children, tone = "card" }: { children: ReactNode; tone?: "c
   return (
     <span
       className={cn(
-        "grid size-9 shrink-0 place-items-center rounded-full",
+        "grid size-8 shrink-0 place-items-center rounded-full",
         tone === "card" && "bg-card shadow-soft",
         tone === "accent" && "bg-accent text-accent-foreground",
         tone === "ink" && "bg-ink text-ink-foreground",
@@ -27,7 +27,6 @@ export function StudentProfile() {
   const dot = { p: "bg-success", l: "bg-warning", a: "bg-destructive" } as const;
   const skills = [
     { s: "Balance & posture", v: 90 },
-    { s: "Crossovers", v: 68 },
     { s: "T-stop & plough stop", v: 80 },
   ];
   const levels = ["Beginner", "Intermediate", "Advanced"];
@@ -43,9 +42,9 @@ export function StudentProfile() {
           </RoundIcon>
         }
       />
-      <Body className="space-y-2.5">
+      <Body className="space-y-2">
         {/* Identity */}
-        <div className="rounded-3xl bg-ink p-4 text-ink-foreground">
+        <div className="rounded-3xl bg-ink p-3.5 text-ink-foreground">
           <div className="flex items-center gap-3">
             <div className="rounded-full bg-accent p-[3px]">
               <Avatar src={aarav} name="Aarav Sharma" size={58} />
@@ -59,7 +58,7 @@ export function StudentProfile() {
               </div>
             </div>
           </div>
-          <div className="mt-3.5 grid grid-cols-3 divide-x divide-ink-foreground/15 rounded-2xl bg-ink-foreground/[0.07] py-2.5 text-center">
+          <div className="mt-3 grid grid-cols-3 divide-x divide-ink-foreground/15 rounded-2xl bg-ink-foreground/[0.07] py-2.5 text-center">
             {[
               ["Batch", "B · Inter."],
               ["Schedule", "M W F · 5PM"],
@@ -74,9 +73,9 @@ export function StudentProfile() {
         </div>
 
         {/* Attendance */}
-        <Card className="flex items-center gap-3.5 p-3.5">
+        <Card className="flex items-center gap-3.5 p-3">
           <div className="relative">
-            <Ring value={92} size={68} stroke={8} />
+            <Ring value={92} size={60} stroke={7} />
             <p className="absolute inset-0 grid place-items-center font-display text-base font-extrabold">92%</p>
           </div>
           <div className="flex-1">
@@ -95,7 +94,7 @@ export function StudentProfile() {
         </Card>
 
         {/* Progress */}
-        <Card className="p-3.5">
+        <Card className="p-3">
           <div className="flex items-center justify-between">
             <p className="text-sm font-bold">Progress</p>
             <span className="flex items-center gap-1 text-[10px] font-semibold text-muted-foreground">
@@ -130,7 +129,7 @@ export function StudentProfile() {
 
         {/* Parents */}
         <div>
-          <div className="mb-2 mt-1 flex items-center justify-between">
+          <div className="mb-1.5 mt-1 flex items-center justify-between">
             <h3 className="text-sm font-bold">Parent contacts</h3>
             <span className="text-xs font-semibold text-muted-foreground">Primary ★</span>
           </div>
@@ -139,21 +138,22 @@ export function StudentProfile() {
               { n: "Priya Sharma", r: "Mother", p: "+91 98450 12345", primary: true },
               { n: "Rohan Sharma", r: "Father", p: "+91 99001 67890", primary: false },
             ].map((c) => (
-              <div key={c.n} className="flex items-center gap-2.5 p-2.5">
-                <Avatar name={c.n} size={36} />
+              <div key={c.n} className="flex items-center gap-2 px-2.5 py-2">
+                <Avatar name={c.n} size={32} />
                 <div className="min-w-0 flex-1">
-                  <p className="flex items-center gap-1.5 text-sm font-bold">
+                  <p className="flex items-center gap-1 whitespace-nowrap text-sm font-bold">
                     {c.n}
-                    <span className="text-[10px] font-semibold text-muted-foreground">{c.r}</span>
                     {c.primary && <Star className="size-3 fill-current text-warning" />}
                   </p>
-                  <p className="text-[11px] font-medium text-muted-foreground">{c.p}</p>
+                  <p className="whitespace-nowrap text-[11px] font-medium text-muted-foreground">
+                    {c.r} · {c.p}
+                  </p>
                 </div>
                 <RoundIcon tone="accent">
-                  <MessageCircle className="size-4" />
+                  <MessageCircle className="size-3.5" />
                 </RoundIcon>
                 <RoundIcon tone="ink">
-                  <Phone className="size-4" />
+                  <Phone className="size-3.5" />
                 </RoundIcon>
               </div>
             ))}
