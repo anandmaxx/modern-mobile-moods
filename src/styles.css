@@ -38,6 +38,7 @@
   --color-destructive-foreground: var(--destructive-foreground);
   --color-bezel: var(--bezel);
   --color-notch: var(--notch);
+  --color-scrim: var(--scrim);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -88,6 +89,8 @@
   --destructive-foreground: oklch(0.985 0 0);
   --bezel: oklch(0.17 0.02 262);
   --notch: oklch(0.17 0.02 262);
+  /* Photo overlays stay dark in either theme */
+  --scrim: oklch(0.18 0.04 262 / 0.62);
   --grid-dot: oklch(0.24 0.045 262 / 0.08);
   --border: oklch(0.92 0.01 255);
   --input: oklch(0.92 0.01 255);
@@ -123,7 +126,7 @@
   --secondary-foreground: oklch(0.96 0.005 250);
   --muted: oklch(0.25 0.025 262);
   --muted-foreground: oklch(0.7 0.02 256);
-  --ink: oklch(0.27 0.035 262);
+  --ink: oklch(0.36 0.035 262);
   --ink-foreground: oklch(0.97 0.004 250);
   --border: oklch(1 0 0 / 9%);
   --input: oklch(1 0 0 / 14%);
@@ -131,6 +134,7 @@
   /* Phone shell stays readable against the dark canvas */
   --bezel: oklch(0.3 0.022 262);
   --notch: oklch(0.09 0.015 262);
+  --scrim: oklch(0.05 0.012 262 / 0.72);
   --grid-dot: oklch(0.95 0.01 250 / 0.07);
   /* Status colours lifted for contrast on dark cards */
   --success: oklch(0.75 0.15 155);
