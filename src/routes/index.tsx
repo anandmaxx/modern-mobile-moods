@@ -86,6 +86,7 @@ function Index() {
         <PhoneFrame title="Enquiries"><EnquiriesScreen /></PhoneFrame>
         <PhoneFrame title="Feedback" note="Coach notes and achievements"><FeedbackScreen /></PhoneFrame>
         <PhoneFrame title="Profile · dark mode" dark><ParentProfile /></PhoneFrame>
+        <PhoneFrame title="School & address" note="Parent adds school name and home address for their child"><StudentDetailsForm /></PhoneFrame>
       </Section>
 
       <Section id="staff" eyebrow="03 · Staff app" title="For coaches & managers" desc="Check in, mark attendance, collect fees and approve every message to parents.">
@@ -93,7 +94,6 @@ function Index() {
         <PhoneFrame title="Mark attendance" note="Present, Late, Absent, Excused + visitors"><StaffMark /></PhoneFrame>
         <PhoneFrame title="Students"><StaffStudents /></PhoneFrame>
         <PhoneFrame title="Student profile" note="Class, attendance, progress and parent contacts"><StudentProfile /></PhoneFrame>
-        <PhoneFrame title="School & address" note="Form to add school name and home address"><StudentDetailsForm /></PhoneFrame>
         <PhoneFrame title="Payments" note="Collected, outstanding, screenshot reviews"><StaffPayments /></PhoneFrame>
         <PhoneFrame title="Inbox · Approvals" note="Nothing reaches parents without approval"><StaffInbox /></PhoneFrame>
         <PhoneFrame title="New announcement" note="With a preview of what parents see"><StaffEngagement /></PhoneFrame>
