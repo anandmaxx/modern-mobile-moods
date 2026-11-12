@@ -1,9 +1,9 @@
 import {
-  Pencil, Phone, MessageCircle, MapPin, Clock, Trophy, Star, Check, LocateFixed,
+  Pencil, Phone, MessageCircle, MapPin, Clock, Star, Check, LocateFixed,
   School, Home, ChevronDown, Info, Save,
 } from "lucide-react";
 import aarav from "@/assets/kid-aarav.jpg";
-import { Avatar, Body, Card, Pill, PrimaryButton, Ring, SectionLabel, TopBar } from "./kit";
+import { Avatar, Body, Card, Pill, PrimaryButton, Ring, TopBar } from "./kit";
 import type { ComponentType, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
@@ -43,7 +43,7 @@ export function StudentProfile() {
           </RoundIcon>
         }
       />
-      <Body className="space-y-3">
+      <Body className="space-y-2.5">
         {/* Identity */}
         <div className="rounded-3xl bg-ink p-4 text-ink-foreground">
           <div className="flex items-center gap-3">
@@ -113,7 +113,7 @@ export function StudentProfile() {
               </div>
             ))}
           </div>
-          <div className="mt-2.5 space-y-2">
+          <div className="mt-2 space-y-1.5">
             {skills.map((k) => (
               <div key={k.s}>
                 <div className="flex justify-between text-[11px]">
@@ -126,14 +126,14 @@ export function StudentProfile() {
               </div>
             ))}
           </div>
-          <div className="mt-2.5 flex items-center gap-2 rounded-xl bg-accent/30 px-2.5 py-1.5 text-[11px] font-semibold">
-            <Trophy className="size-3.5" /> Inter-academy meet · Silver, Oct 2026
-          </div>
         </Card>
 
         {/* Parents */}
         <div>
-          <SectionLabel action="2 contacts">Parent contacts</SectionLabel>
+          <div className="mb-2 mt-1 flex items-center justify-between">
+            <h3 className="text-sm font-bold">Parent contacts</h3>
+            <span className="text-xs font-semibold text-muted-foreground">Primary ★</span>
+          </div>
           <div className="divide-y rounded-2xl bg-card shadow-soft">
             {[
               { n: "Priya Sharma", r: "Mother", p: "+91 98450 12345", primary: true },
@@ -142,13 +142,12 @@ export function StudentProfile() {
               <div key={c.n} className="flex items-center gap-2.5 p-2.5">
                 <Avatar name={c.n} size={36} />
                 <div className="min-w-0 flex-1">
-                  <p className="flex items-center gap-1 text-sm font-bold">
+                  <p className="flex items-center gap-1.5 text-sm font-bold">
                     {c.n}
+                    <span className="text-[10px] font-semibold text-muted-foreground">{c.r}</span>
                     {c.primary && <Star className="size-3 fill-current text-warning" />}
                   </p>
-                  <p className="truncate text-[11px] text-muted-foreground">
-                    {c.r} · {c.p}
-                  </p>
+                  <p className="text-[11px] font-medium text-muted-foreground">{c.p}</p>
                 </div>
                 <RoundIcon tone="accent">
                   <MessageCircle className="size-4" />
@@ -182,10 +181,10 @@ function Input({
 }) {
   return (
     <div className={className}>
-      <p className="mb-1 pl-1 text-[11px] font-semibold text-muted-foreground">{label}</p>
+      <p className="mb-0.5 pl-1 text-[11px] font-semibold text-muted-foreground">{label}</p>
       <div
         className={cn(
-          "flex h-11 items-center justify-between gap-2 rounded-2xl border bg-card px-3.5 text-sm",
+          "flex h-10 items-center justify-between gap-2 rounded-xl border bg-card px-3.5 text-sm",
           focused && "border-ink ring-4 ring-accent/50 dark:border-accent",
         )}
       >
@@ -204,7 +203,7 @@ export function StudentDetailsForm() {
     <>
       <TopBar back title="School & address" subtitle="Aarav Sharma · step 2 of 3" />
       <Body className="flex flex-col">
-        <div className="mb-4 flex gap-1.5">
+        <div className="mb-3 flex gap-1.5">
           {[0, 1, 2].map((i) => (
             <span key={i} className={cn("h-1.5 flex-1 rounded-full", i < 2 ? "bg-accent" : "bg-muted")} />
           ))}
@@ -216,7 +215,7 @@ export function StudentDetailsForm() {
           </span>
           <h3 className="text-sm font-bold">School</h3>
         </div>
-        <div className="space-y-2.5">
+        <div className="space-y-2">
           <Input label="School name" value="Greenwood High Internatio" focused />
           <div className="grid grid-cols-2 gap-2">
             <Input label="Class / grade" value="Grade 4" icon={ChevronDown} />
@@ -224,7 +223,7 @@ export function StudentDetailsForm() {
           </div>
         </div>
 
-        <div className="mb-2 mt-5 flex items-center justify-between">
+        <div className="mb-2 mt-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="grid size-7 place-items-center rounded-xl bg-ink text-ink-foreground">
               <Home className="size-3.5" />
@@ -235,7 +234,7 @@ export function StudentDetailsForm() {
             <LocateFixed className="size-3" /> Use location
           </span>
         </div>
-        <div className="space-y-2.5">
+        <div className="space-y-2">
           <Input label="House / flat no. & building" value="A-304, Prestige Lakeside" />
           <Input label="Street & area" value="8th Main, Koramangala 4th Block" />
           <div className="grid grid-cols-2 gap-2">
@@ -245,9 +244,9 @@ export function StudentDetailsForm() {
           <Input label="Landmark (optional)" placeholder="Near Forum Mall" icon={MapPin} />
         </div>
 
-        <div className="mt-3 flex items-start gap-2 rounded-xl bg-info/10 px-3 py-2 text-[11px] text-info">
-          <Info className="mt-px size-3.5 shrink-0" />
-          Only visible to academy staff. Used for pick-up and emergencies.
+        <div className="mt-3 flex items-center gap-2 rounded-xl bg-info/10 px-3 py-2 text-[11px] font-medium text-info">
+          <Info className="size-3.5 shrink-0" />
+          Only academy staff can see this address.
         </div>
 
         <div className="mt-auto grid grid-cols-[auto_1fr] gap-2 pt-3">
