@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import type { ReactNode } from "react";
+import { Moon, Sun } from "lucide-react";
+import { useEffect, useState, type ReactNode } from "react";
+import { cn } from "@/lib/utils";
 import { PhoneFrame } from "@/components/mock/kit";
 import { Logo, LoginScreen, LockedScreen, TermsScreen } from "@/components/mock/common-screens";
 import {
@@ -39,32 +41,67 @@ function Section({ id, eyebrow, title, desc, children }: { id: string; eyebrow: 
   );
 }
 
-function Index() {
+function ThemeSwitch({ dark, onChange }: { dark: boolean; onChange: (d: boolean) => void }) {
   return (
-    <main className="canvas-grid min-h-screen">
+    <div className="flex shrink-0 items-center gap-1 rounded-full border bg-card p-1">
+      {[
+        { on: false, label: "Light", Icon: Sun },
+        { on: true, label: "Dark", Icon: Moon },
+      ].map(({ on, label, Icon }) => (
+        <button
+          key={label}
+          type="button"
+          aria-pressed={dark === on}
+          onClick={() => onChange(on)}
+          className={cn(
+            "flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-bold transition-colors",
+            dark === on ? "bg-ink text-ink-foreground" : "text-muted-foreground hover:text-foreground",
+          )}
+        >
+          <Icon className="size-3.5" />
+          {label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function Index() {
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", dark);
+  }, [dark]);
+
+  return (
+    <main className="canvas-grid min-h-screen bg-background">
       <header className="sticky top-0 z-30 border-b bg-background/85 backdrop-blur">
-        <div className="mx-auto flex max-w-[1520px] items-center justify-between px-6 py-4">
+        <div className="mx-auto flex max-w-[1520px] flex-wrap items-center justify-between gap-x-6 gap-y-3 px-6 py-4">
           <Logo />
-          <nav className="flex gap-1 text-sm font-semibold">
-            {[
-              ["#start", "Sign in"],
-              ["#parent", "Parent app"],
-              ["#staff", "Staff app"],
-            ].map(([h, l]) => (
-              <a key={h} href={h} className="rounded-full px-4 py-2 text-muted-foreground transition-colors hover:bg-card hover:text-foreground">
-                {l}
-              </a>
-            ))}
-          </nav>
+          <div className="flex items-center gap-3">
+            <nav className="hidden gap-1 text-sm font-semibold sm:flex">
+              {[
+                ["#start", "Sign in"],
+                ["#parent", "Parent app"],
+                ["#staff", "Staff app"],
+              ].map(([h, l]) => (
+                <a key={h} href={h} className="rounded-full px-4 py-2 text-muted-foreground transition-colors hover:bg-card hover:text-foreground">
+                  {l}
+                </a>
+              ))}
+            </nav>
+            <ThemeSwitch dark={dark} onChange={setDark} />
+          </div>
         </div>
       </header>
 
       <div className="mx-auto max-w-[1520px] px-6 pb-4 pt-16">
         <h1 className="max-w-3xl text-5xl font-extrabold leading-[1.02] md:text-6xl">
-          One app, two experiences. <span className="rounded-xl bg-accent px-2 text-accent-foreground">24 screens.</span>
+          One app, two experiences. <span className="rounded-xl bg-accent px-2 text-accent-foreground">26 screens.</span>
         </h1>
         <p className="mt-4 max-w-xl text-lg text-muted-foreground">
           Mobile UI for SkateFlow — parents follow attendance and fees, staff run the academy's day.
+          Flip the whole set between light and dark with the switch up top.
         </p>
       </div>
 
@@ -76,7 +113,6 @@ function Index() {
 
       <Section id="parent" eyebrow="02 · Parent app" title="For parents" desc="Children, attendance, fees and academy updates — all in one place.">
         <PhoneFrame title="Home" note="Children, posters, quick actions, guidelines"><ParentHome /></PhoneFrame>
-        <PhoneFrame title="Home · dark mode" dark><ParentHome /></PhoneFrame>
         <PhoneFrame lightStatus title="New poster" note="Opens full-screen once per phone"><PosterPopup /></PhoneFrame>
         <PhoneFrame title="Attendance" note="Counted by day; visitor batches don't count against"><ParentAttendance /></PhoneFrame>
         <PhoneFrame title="Leave notice"><LeaveNotice /></PhoneFrame>
@@ -86,7 +122,7 @@ function Index() {
         <PhoneFrame title="Inbox" note="Every notification opens the right screen"><NotificationsScreen /></PhoneFrame>
         <PhoneFrame title="Enquiries"><EnquiriesScreen /></PhoneFrame>
         <PhoneFrame title="Feedback" note="Coach notes and achievements"><FeedbackScreen /></PhoneFrame>
-        <PhoneFrame title="Profile · dark mode" dark><ParentProfile /></PhoneFrame>
+        <PhoneFrame title="Profile" note="Account, payments and academy contacts"><ParentProfile /></PhoneFrame>
         <PhoneFrame title="School & address" note="Parent adds school name and home address for their child"><StudentDetailsForm /></PhoneFrame>
         <PhoneFrame title="Child photo · options" note="Tap the photo to take, upload, edit or remove it"><ChildPhotoOptions /></PhoneFrame>
         <PhoneFrame lightStatus title="Edit photo" note="Crop, zoom, rotate, flip and brighten"><EditChildPhoto /></PhoneFrame>
