@@ -4,9 +4,10 @@ import {
 } from "lucide-react";
 import aarav from "@/assets/kid-aarav.jpg";
 import { Avatar, Body, Card, Pill, PrimaryButton, Ring, SectionLabel, TopBar } from "./kit";
+import type { ComponentType, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
-function RoundIcon({ children, tone = "card" }: { children: React.ReactNode; tone?: "card" | "accent" | "ink" }) {
+function RoundIcon({ children, tone = "card" }: { children: ReactNode; tone?: "card" | "accent" | "ink" }) {
   return (
     <span
       className={cn(
@@ -176,7 +177,7 @@ function Input({
   value?: string;
   placeholder?: string;
   focused?: boolean;
-  icon?: React.ComponentType<{ className?: string }>;
+  icon?: ComponentType<{ className?: string }>;
   className?: string;
 }) {
   return (
