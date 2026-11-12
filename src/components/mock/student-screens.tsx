@@ -27,6 +27,7 @@ export function StudentProfile() {
   const dot = { p: "bg-success", l: "bg-warning", a: "bg-destructive" } as const;
   const skills = [
     { s: "Balance & posture", v: 90 },
+    { s: "Crossovers", v: 68 },
     { s: "T-stop & plough stop", v: 80 },
   ];
   const levels = ["Beginner", "Intermediate", "Advanced"];
